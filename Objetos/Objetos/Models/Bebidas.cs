@@ -9,13 +9,15 @@ namespace Objetos.Models
 
         public Bebida(string name, int cantidad)
         {
-            Name = name;
-            Cantidad = cantidad;
+            this.Name = name;
+            this.Cantidad = cantidad;
         }
 
-        public void Beberse(int cantidad)
+        public void Beberse(int cuantoBebio)
         {
-            Cantidad -= cantidad;
+            this.Cantidad -= cuantoBebio;
+            
+;
         }
     }
 }
