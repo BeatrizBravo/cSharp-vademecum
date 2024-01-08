@@ -30,10 +30,14 @@ namespace FunctionalProgramming
                  
             var show = firstClassFunction.Show; //sin poner parentesis para guardar la funcion en una variable
             //show("Hola", "Bea");
+            var showf = firstClassFunction.showRetrornaAlgo;
 
            // funtion de orden superior
             var showAction = firstClassFunction.SomeAction;
             showAction(show, "Hola caracola", "Bea");
+
+            var showFunc = firstClassFunction.SomeFunc;
+            showFunc(showf, "Hola caracola en Mayuscula", "Beaa");
         }
     }
 }
