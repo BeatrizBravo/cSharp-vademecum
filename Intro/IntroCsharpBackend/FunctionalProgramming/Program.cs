@@ -42,7 +42,8 @@ namespace FunctionalProgramming
 
 
             Console.WriteLine("-------------Lambda---------------");
-
+            CallbackLamda fn = new CallbackLamda();
+            fn.SomeFunctionReturnCallback((a, b) => a + b, 5);
 
         }
     }
