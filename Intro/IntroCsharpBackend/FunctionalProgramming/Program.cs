@@ -1,22 +1,45 @@
-﻿Console.WriteLine(Sub(1, 2));
-Console.WriteLine(GetTomorrow());
+﻿using System;
 
-DateTime fechaEnero = new DateTime(2024,1,8);
-Console.WriteLine(GetTomorrowPuro(fechaEnero));
-
-
-var drink = new Drink()
+namespace FunctionalProgramming
 {
-    Name = "water"
-};
-Console.WriteLine($"drink-originalObject-trasDeclararlo: {drink.Name}");
-Console.WriteLine($"drink-Passing the function-PURA: {ToUpperPURO(drink).Name}");
-Console.WriteLine($"drink-originalObject-despuesFuncionPURA: {drink.Name}");
-Console.WriteLine($"drink-Passing the function-no pura: {ToUpper(drink).Name}");
-Console.WriteLine($"drink-originalObject-despuesFuncion: {drink.Name}");
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Functions functions = new Functions();
+            FirstClassFunction firstClassFunction = new FirstClassFunction();
+
+            Console.WriteLine(functions.Sub(1, 2));
+            Console.WriteLine(functions.GetTomorrowPuro(DateTime.Now));
+
+            DateTime fechaEnero = new DateTime(2024, 1, 8);
+            Console.WriteLine(functions.GetTomorrowPuro(fechaEnero));
+
+            var drink = new Drink()
+            {
+                Name = "water"
+            };
+            Console.WriteLine($"drink-originalObject-trasDeclararlo: {drink.Name}");
+            Console.WriteLine($"drink-Passing the function-PURA: {functions.ToUpperPURO(drink).Name}");
+            Console.WriteLine($"drink-originalObject-despuesFuncionPURA: {drink.Name}");
+            Console.WriteLine($"drink-Passing the function-no pura: {functions.ToUpper(drink).Name}");
+            Console.WriteLine($"drink-originalObject-despuesFuncion: {drink.Name}");
 
 
-//Funcion PURA 
+            /************************        First class function *************/
+                 
+            var show = firstClassFunction.Show; //sin poner parentesis para guardar la funcion en una variable
+            //show("Hola", "Bea");
+
+           // funtion de orden superior
+            var showAction = firstClassFunction.SomeAction;
+            showAction(show, "Hola caracola", "Bea");
+        }
+    }
+}
+
+
+/*//Funcion PURA 
 // queno altere el resultado externo y el mismo resultado con la misma entrada
 
 int Sub(int v1, int v2)
@@ -33,7 +56,7 @@ DateTime GetTomorrow()
 {
     return date.AddDays(1); // ya no depende de un elemento calculado internamente. Externamente le damos la fecha
 }
-/**********STRUCT****************************
+*//**********STRUCT****************************
 Una estructura es un tipo de dato que puede contener variables, métodos, propiedades y otros miembros de datos. 
 A diferencia de las clases, las estructuras son tipos de valor y se pasan por valor en lugar de por referencia.
 
@@ -59,7 +82,7 @@ lo que puede ser beneficioso en términos de rendimiento y uso de memoria.
  
  
  
- */
+ *//*
 
 
 //Se podria clonar el elemento para que sea inmutable
@@ -80,5 +103,5 @@ Drink ToUpper(Drink drink)  // no pura, alteraria el objeto drink, 54
 class Drink
 {
     public string Name { get; set; }
-}
+}*/
 
