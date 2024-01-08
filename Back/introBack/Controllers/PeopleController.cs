@@ -9,7 +9,15 @@ namespace introBack.Controllers
     {
 
     }
-
+    public class Repository
+    {
+        public static List<People> People = new List<People>()
+        {
+            new People() { Id = 1, Name = "Pedro", Birthdate = new DateTime(1990, 10, 1) },
+            new People() { Id = 2, Name = "Juan", Birthdate = new DateTime(1990, 12, 1)},
+            new People()  {Id = 3, Name = "Muan", Birthdate = new DateTime(1990, 3, 1) }
+        };
+    }
 
 
     public class People
