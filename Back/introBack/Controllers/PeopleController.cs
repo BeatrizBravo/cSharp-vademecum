@@ -7,7 +7,10 @@ namespace introBack.Controllers
     [ApiController]
     public class PeopleController : ControllerBase
     {
-
+        //respuesta de  un tipo especifico, una lista de ppersona
+        // pueden entrar por get or all in postman metemos la url/people/all
+        [HttpGet("all")]
+        public List<People> GetPeople()=> Repository.People;
     }
     public class Repository
     {
