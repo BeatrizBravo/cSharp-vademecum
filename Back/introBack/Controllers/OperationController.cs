@@ -20,8 +20,14 @@ namespace introBack.Controllers
             return a - b;
 
         }   */    
-        public decimal Sub(Numbers numbers)
+// information from headers. Add a key and value from postman headers using post method and send it
+        public decimal Sub(Numbers numbers, [FromHeader] string Host, 
+            [FromHeader(Name ="Content-Length")] string longitudContenido, 
+            [FromHeader(Name ="X-some")] string algo)
         {
+            Console.WriteLine(Host);
+            Console.WriteLine(longitudContenido);
+            Console.WriteLine(algo);
             return numbers.A - numbers.B;
 
         }
