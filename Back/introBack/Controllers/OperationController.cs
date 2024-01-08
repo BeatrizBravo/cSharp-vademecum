@@ -15,11 +15,16 @@ namespace introBack.Controllers
             return a+b;
         }
         [HttpPost] //create o sumit data a new resource on the server
-        public decimal Sub(decimal a, decimal b)
+/*        public decimal Sub(decimal a, decimal b, Numbers numbers)
         {
             return a - b;
 
-        } 
+        }   */    
+        public decimal Sub(Numbers numbers)
+        {
+            return numbers.A - numbers.B;
+
+        }
         [HttpPut] //update o replace o create a new resource in the server
         public decimal Edit(decimal a, decimal b)
         {
@@ -33,5 +38,11 @@ namespace introBack.Controllers
         }
 
         //[HttpPost]//partially update o modify the data, do not create if there is not exits 
+    }
+
+    public class Numbers
+    {
+        public decimal A { get; set;}
+        public decimal B { get; set;}   
     }
 }
